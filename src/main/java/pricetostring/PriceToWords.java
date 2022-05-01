@@ -15,7 +15,7 @@ public class PriceToWords {
                 int number = sc.nextInt();
                 if (number <= 0 || number > 9999)
                     throw new RuntimeException("Числовое значение суммы должно находиться в диапазоне от 0 до 10000.");
-                Currency currency = new CurrencyRubl();
+                Currency currency = new CurrencyRuble();
                 Price price = new Price(number, currency);
                 String result = price.getPriceToWords();
                 System.out.println(result);

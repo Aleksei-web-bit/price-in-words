@@ -1,5 +1,5 @@
 package pricetostring;
 
 public interface Currency {
-    String[] getCurrencyName();
+    String getCurrencyName(int price);
 }

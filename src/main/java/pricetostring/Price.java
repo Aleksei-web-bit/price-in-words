@@ -8,7 +8,7 @@ public class Price {
     private final Currency currency;
 
     public Price(int price, Currency currency) {
-        if (price <= 0 || price > 9999) {
+        if (price < 0 || price > 9999) {
             throw new IllegalArgumentException("Значение 'price' должно быть больше нуля и меньше 10000.");
         }
 
@@ -31,14 +31,7 @@ public class Price {
     public String getPriceToWords() {
         String result = "";
         String text = "";
-        String[] currencies = this.currency.getCurrencyName();
-        List<Integer> segments = new ArrayList<>();
-        int number = price;
-        while (number > 0) {
-            int segment = number % 1000;
-            segments.add(segment);
-            number = number / 1000;
-        }
+        List<Integer> segments = findSegments(price);
 
         for (int i = segments.size() - 1; i >= 0; i--) {
             int low = segments.get(i) % 10;
@@ -58,13 +51,25 @@ public class Price {
                 } else {
                     text = text + " " + Words.getThousands(low) + " ";
                 }
-            } else if (i == 0 && average == 1) {
-                text = text + " " + currencies[0];
-            } else {
-                text = text + " " + currencies[low];
             }
             result += text;
         }
-        return result.trim().replace("  ", " ");
+        result += " " + this.currency.getCurrencyName(price);
+        return result.trim().replaceAll(" +", " ");
+    }
+
+    private List<Integer> findSegments(int price) {
+        List<Integer> segments = new ArrayList<>();
+        if (price == 0) {
+            segments.add(price);
+        } else {
+            int number = price;
+            while (number > 0) {
+                int segment = number % 1000;
+                segments.add(segment);
+                number = number / 1000;
+            }
+        }
+        return segments;
     }
 }

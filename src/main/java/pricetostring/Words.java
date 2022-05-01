@@ -5,7 +5,7 @@ public class Words {
     private static final String[] FROM_TEN_TILL_NINETEEN = {"десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
     private static final String[] TENS = {"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
     private static final String[] HUNDREDS = {"", "сто", "двести", "тристо", "четыресто", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"};
-    private static final String[] THOUSANDS = {"", "тысяча", "тысячи", "тысячи", "тысячи", "тысяч", "тысяч", "тысяч", "тысяч", "тысяч"};
+    private static final String[] THOUSANDS = {"тысяч", "тысяча", "тысячи", "тысячи", "тысячи", "тысяч", "тысяч", "тысяч", "тысяч", "тысяч"};
 
     public static String getFromZeroTillNine(int i, int j) {
         return FROM_ZERO_TILL_NINE[i][j];
