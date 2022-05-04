@@ -1,6 +1,6 @@
 package pricetostring;
 
-public class CurrencyYuan implements Currency {
+public class CurrencyYuan extends AbstractCurrency implements Currency {
     private final String[] CNY = {"юаней", "юань", "юаня", "юаня", "юаня", "юаней", "юаней", "юаней", "юаней", "юаней"};
 
     @Override

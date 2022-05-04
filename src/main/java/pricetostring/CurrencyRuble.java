@@ -1,6 +1,6 @@
 package pricetostring;
 
-public class CurrencyRuble implements Currency {
+public class CurrencyRuble extends AbstractCurrency implements Currency {
     private final String[] RUB = {"рублей", "рубль", "рубля", "рубля", "рубля", "рублей", "рублей", "рублей", "рублей", "рублей"};
 
     @Override
@@ -13,10 +13,5 @@ public class CurrencyRuble implements Currency {
         } else {
             return RUB[ones];
         }
-    }
-
-    @Override
-    public String getCurrencyName0(String[] numerals, int price) {
-        return Currency.super.getCurrencyName0(RUB, price);
     }
 }
