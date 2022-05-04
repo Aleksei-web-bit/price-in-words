@@ -14,4 +14,9 @@ public class CurrencyRuble implements Currency {
             return RUB[ones];
         }
     }
+
+    @Override
+    public String getCurrencyName0(String[] numerals, int price) {
+        return Currency.super.getCurrencyName0(RUB, price);
+    }
 }

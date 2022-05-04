@@ -183,9 +183,8 @@ public class PriceTests {
 
     @Test
     void testNotNull() {
-        Currency currency = null;
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Price price = new Price(1, currency);
+            Price price = new Price(1, null);
         });
         Assertions.assertEquals("Значение 'currency' не должно быть null.", exception.getMessage());
     }
