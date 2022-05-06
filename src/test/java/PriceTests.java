@@ -6,12 +6,12 @@ import pricetostring.Price;
 
 public class PriceTests {
 
-//    @Test
-//    void priceToWordsTest0Rubles(){
-//        Currency currency = new CurrencyRuble();
-//        Price price = new Price(0, currency);
-//        Assertions.assertEquals("ноль рублей", price.getPriceToWords());
-//    }
+    @Test
+    void priceToWordsTest0Rubles() {
+        Currency currency = new CurrencyRuble();
+        Price price = new Price(0, currency);
+        Assertions.assertEquals("ноль рублей", price.getPriceToWords());
+    }
 
     @Test
     void priceToWordsTest1Ruble() {
@@ -195,7 +195,7 @@ public class PriceTests {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Price price = new Price(-1, currency);
         });
-        Assertions.assertEquals("Значение 'price' должно быть больше нуля и меньше 10000.", exception.getMessage());
+        Assertions.assertEquals("Допустимое числовое значение цены должно быть от 0 до 10000.", exception.getMessage());
     }
 
     @Test
@@ -204,6 +204,6 @@ public class PriceTests {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Price price = new Price(10000, currency);
         });
-        Assertions.assertEquals("Значение 'price' должно быть больше нуля и меньше 10000.", exception.getMessage());
+        Assertions.assertEquals("Допустимое числовое значение цены должно быть от 0 до 10000.", exception.getMessage());
     }
 }

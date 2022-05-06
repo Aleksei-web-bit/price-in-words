@@ -4,8 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PriceToWords {
-
     public static void main(String[] args) {
+        String result;
         boolean ok = false;
 
         do {
@@ -13,11 +13,11 @@ public class PriceToWords {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Пожалуйста, введите целочисленное значение цены от 0 до 10000: ");
                 int number = sc.nextInt();
-                if (number <= 0 || number > 9999)
+                if (number < 0 || number > 9999)
                     throw new RuntimeException("Числовое значение суммы должно находиться в диапазоне от 0 до 10000.");
                 Currency currency = new CurrencyRuble();
                 Price price = new Price(number, currency);
-                String result = price.getPriceToWords();
+                result = price.getPriceToWords();
                 System.out.println(result);
                 ok = true;
             } catch (InputMismatchException e) {
